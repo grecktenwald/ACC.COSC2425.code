@@ -1,0 +1,10 @@
+# Makefile for driver.exe (Lab8)
+
+TARGET  =   blink
+
+# This line lists the source files for this project
+SRC     =   blink.c
+
+# do not modify anything below this line ----------------------------
+include             /tools/lib/AVRmaster.mak
+

@@ -1,0 +1,11 @@
+# Makefile for driver.exe (Lab8)
+
+TARGET  =   halt
+
+# This line lists the source files for this project
+ASRC    =   halt.S
+ASFLAGS	+=	-nostartfiles
+
+# do not modify anything below this line ----------------------------
+include             /tools/lib/AVRmaster.mak
+
