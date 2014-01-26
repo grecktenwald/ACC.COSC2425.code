@@ -11,7 +11,7 @@ $(TARGET):  $(COBJS)
 		gcc -o $(TARGET) $^
 
 $(TARGET).s:    $(TARGET).c
-		gcc -S $< -o $@
+		gcc -S $< -o $@ -masm=intel
 
 %.o:    %.c
 		gcc -c $< -o $@

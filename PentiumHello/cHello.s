@@ -1,35 +1,29 @@
-	.section	__TEXT,__text,regular,pure_instructions
-	.globl	_main
-	.align	4, 0x90
-_main:                                  ## @main
+	.file	"cHello.c"
+	.intel_syntax noprefix
+	.section	.rodata
+.LC0:
+	.string	"Hello, World!"
+	.text
+	.globl	main
+	.type	main, @function
+main:
+.LFB0:
 	.cfi_startproc
-## BB#0:
-	pushq	%rbp
-Ltmp2:
+	push	rbp
 	.cfi_def_cfa_offset 16
-Ltmp3:
-	.cfi_offset %rbp, -16
-	movq	%rsp, %rbp
-Ltmp4:
-	.cfi_def_cfa_register %rbp
-	subq	$32, %rsp
-	leaq	L_.str(%rip), %rax
-	movl	%edi, -4(%rbp)
-	movq	%rsi, -16(%rbp)
-	movq	%rax, %rdi
-	movb	$0, %al
-	callq	_printf
-	movl	$0, %ecx
-	movl	%eax, -20(%rbp)         ## 4-byte Spill
-	movl	%ecx, %eax
-	addq	$32, %rsp
-	popq	%rbp
+	.cfi_offset 6, -16
+	mov	rbp, rsp
+	.cfi_def_cfa_register 6
+	sub	rsp, 16
+	mov	DWORD PTR [rbp-4], edi
+	mov	QWORD PTR [rbp-16], rsi
+	mov	edi, OFFSET FLAT:.LC0
+	call	puts
+	leave
+	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-
-	.section	__TEXT,__cstring,cstring_literals
-L_.str:                                 ## @.str
-	.asciz	 "Hello, World!\n"
-
-
-.subsections_via_symbols
+.LFE0:
+	.size	main, .-main
+	.ident	"GCC: (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3"
+	.section	.note.GNU-stack,"",@progbits
