@@ -10,7 +10,7 @@ LCO:    db      "Hello, World",0
         extern  puts
 main:
         push    rbp
-        mov     rbp. rsp
+        mov     rbp, rsp
         sub     rsp, 16
         mov     DWORD [rbp-4], edi
         mov     [rbp-16], rsi
