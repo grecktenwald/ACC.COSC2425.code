@@ -1,23 +1,23 @@
-	.section	__TEXT,__text,regular,pure_instructions
-	.globl	_main
-	.align	4, 0x90
-_main:                                  ## @main
+	.file	"main1.c"
+	.intel_syntax noprefix
+	.text
+	.globl	main
+	.type	main, @function
+main:
+.LFB0:
 	.cfi_startproc
-## BB#0:
-	pushq	%rbp
-Ltmp2:
+	push	rbp
 	.cfi_def_cfa_offset 16
-Ltmp3:
-	.cfi_offset %rbp, -16
-	movq	%rsp, %rbp
-Ltmp4:
-	.cfi_def_cfa_register %rbp
-	movl	$0, %eax
-	movl	%edi, -4(%rbp)
-	movq	%rsi, -16(%rbp)
-	popq	%rbp
+	.cfi_offset 6, -16
+	mov	rbp, rsp
+	.cfi_def_cfa_register 6
+	mov	DWORD PTR [rbp-4], edi
+	mov	QWORD PTR [rbp-16], rsi
+	pop	rbp
+	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-
-
-.subsections_via_symbols
+.LFE0:
+	.size	main, .-main
+	.ident	"GCC: (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3"
+	.section	.note.GNU-stack,"",@progbits
