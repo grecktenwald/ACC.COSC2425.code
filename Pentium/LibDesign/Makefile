@@ -18,5 +18,5 @@ main2:	main2.o
 		gcc	$<	-S	-o $@ -masm=intel
 
 clean:
-		rm *.o *.s
+		rm *.o *.s $(PROGS)
 
